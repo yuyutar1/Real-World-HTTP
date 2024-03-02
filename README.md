@@ -37,3 +37,36 @@ GET /?search%20word
   accept: "*/*",
 }
 ```
+
+```bash
+curl -v --http1.0 http://localhost:18888
+
+*   Trying ::1:18888...
+* Connected to localhost (::1) port 18888 (#0)
+> GET / HTTP/1.0
+> Host: localhost:18888
+> User-Agent: curl/7.76.1
+> Accept: */*
+>
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Content-Type: text/html
+< Date: Sat, 02 Mar 2024 16:42:25 GMT
+< Content-Length: 32
+<
+<html><body>hello</body></html>
+* Connection #0 to host localhost left intact
+
+GET /
+{
+  host: "localhost:18888",
+  "user-agent": "curl/7.76.1",
+  accept: "*/*",
+}
+```
+
+## HTTP/0.9
+
+- 1つのdocumentのみ送る
+- 通信内容はHTML文書の前提
+- 検索のリクエスト以外送信不可
