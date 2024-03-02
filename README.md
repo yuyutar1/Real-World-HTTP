@@ -27,7 +27,7 @@ GET /
 }
 ```
 
-``` bash
+```bash
 curl --http1.0 -G --data-urlencode "search word" http://localhost:18888
 
 GET /?search%20word
@@ -65,8 +65,20 @@ GET /
 }
 ```
 
+```bash
+curl --http1.0 -H "X-Test: Hello" http://localhost:18888
+
+GET /
+{
+  host: "localhost:18888",
+  "user-agent": "curl/7.76.1",
+  accept: "*/*",
+  "x-test": "Hello",
+}
+```
+
 ## HTTP/0.9
 
-- 1つのdocumentのみ送る
-- 通信内容はHTML文書の前提
+- 1 つの document のみ送る
+- 通信内容は HTML 文書の前提
 - 検索のリクエスト以外送信不可
